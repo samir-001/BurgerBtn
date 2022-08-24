@@ -1,0 +1,152 @@
+
+*{
+    margin:0 0 0 0;
+    padding:0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+#toggler{
+    position: absolute;
+    top:0;
+    left:0;
+    width:3rem;
+    height:3rem;
+    opacity: 0;
+    z-index: 4;
+}
+#menu {
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+   
+}
+#menu .hamburger-btn{
+    position: absolute;
+    top:0;
+    left:0;
+    width:50px;
+    height:50px;
+    z-index:3;
+    background-color: rgb(174, 73, 73);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: all 300ms ease-in-out;
+
+}
+
+#menu .hamburger-btn .dash{
+width:1.5rem;
+margin: 6px;
+height:2px;
+background-color: azure;
+}
+#menu .hamburger-btn::before ,
+#menu .hamburger-btn::after
+{
+content: "";
+width:1.5rem;
+height:2px;
+background-color: azure;
+}
+#toggler:checked + .hamburger-btn {
+    transform: rotate(135deg);
+    background: none;
+}
+#toggler:checked + .hamburger-btn::before ,#toggler:checked +
+.hamburger-btn::after{
+    transform: rotate(90deg);
+    position: absolute;
+    top:24px;
+}
+ul.links{
+    position: absolute;
+    top: 0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width:100vw;
+    list-style: none;
+    background-color: rgba(0, 0, 0,.8);
+    color:white;
+    margin-bottom: 10px;
+    transform: scale(0);
+    transition: all 300ms ;
+    border-radius: 50%;
+    
+}
+ul.links li {
+    transform: scale(0);
+    padding: 10px;
+    visibility: hidden;
+}
+ul.links  {
+    padding:5px;
+    
+}
+#menu #toggler:checked ~ ul.links{
+    visibility: visible;
+    transform: scale(1);
+    border-radius: 0; 
+}
+#menu #toggler:checked ~ ul.links > li{
+    visibility: visible;
+    transition: all 300ms ;
+    transform: scale(1);
+    transition-delay: 50ms;
+}
+#showcase{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width:100vw;
+    z-index: 1;
+
+}
+#showcase h1, #showcase p{
+    text-align: center;
+    color: white;
+}
+#showcase p{
+    width:70%
+}
+#showcase::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100vw;
+    height: 100vh;
+    background: url("../kir-simakov-7hNFDgIqxSY-unsplash.jpg") no-repeat center center/cover;
+    opacity: .6;
+    z-index: -1;
+}
+a{
+    text-decoration: none;
+    padding: .75rem 1rem;
+    color: white;
+    background-color: brown;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    transform: scale(.7);
+    animation:btnScale  1s forwards;
+}
+@keyframes btnScale{
+    to{
+        transform: scale(1);
+    }
+}
+
+
